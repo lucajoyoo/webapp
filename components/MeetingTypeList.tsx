@@ -44,12 +44,12 @@ const MeetingTypeList = () => {
         if (!client || !user) return
         try {
             if (!values.dateTime) {
-                toast({ title: 'Please select a date and time' })
+                toast({ title: 'Bitte Datum und Zeit auswählen' })
                 return
             }
             const id = crypto.randomUUID()
             const call = client.call('default', id)
-            if (!call) throw new Error('Failed to create meeting')
+            if (!call) throw new Error('Erstellen eines Meeting gescheitert')
             const startsAt =
                 values.dateTime.toISOString() ||
                 new Date(Date.now()).toISOString()
@@ -67,15 +67,15 @@ const MeetingTypeList = () => {
                 router.push(`/meeting/${call.id}`)
             }
             toast({
-                title: 'Meeting Created',
+                title: 'Meeting erstellt',
             })
         } catch (error) {
             console.error(error)
-            toast({ title: 'Failed to create Meeting' })
+            toast({ title: 'Erstellen eines Meeting gescheitert' })
         }
     }
 
-    const meetingLink = `https://hsos-conferencing-dma.vercel.app//meeting/${callDetails?.id}`
+    const meetingLink = `https://hsos-conferencing-dma.vercel.app/meeting/${callDetails?.id}`
 
     return (
         <section className='grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-6'>
@@ -152,11 +152,11 @@ const MeetingTypeList = () => {
                 <MeetingModal
                     isOpen={meetingState === 'isScheduleMeeting'}
                     onClose={() => setMeetingState(undefined)}
-                    title='Meeting Created'
+                    title='Meeting erstellt'
                     className='text-center'
                     handleClick={() => {
                         navigator.clipboard.writeText(meetingLink)
-                        toast({ title: 'Link Copied' })
+                        toast({ title: 'Link kopiert' })
                     }}
                     image='/icons/checked.svg'
                     buttonIcon='/icons/copy.svg'
@@ -168,7 +168,7 @@ const MeetingTypeList = () => {
                 onClose={() => setMeetingState(undefined)}
                 title='Starte ein Meeting'
                 className='text-center'
-                buttonText='Start Meeting'
+                buttonText='Meeting starten'
                 handleClick={createMeeting}
             />
 
