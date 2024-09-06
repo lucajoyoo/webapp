@@ -18,12 +18,12 @@ export const sidebarLinks = [
         label: 'Aufnahmen',
         route: '/recordings',
         imgUrl: '/icons/Video.svg',
-    },
+    }/* ,
     {
         label: 'Mein Raum',
         route: '/personal-room',
         imgUrl: '/icons/add-personal.svg',
-    }
+    } */
 ];
 
 export const avatarImages = [

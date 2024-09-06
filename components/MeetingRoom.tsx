@@ -24,7 +24,7 @@ import EndCallButton from './EndCallButton'
 import Loader from './Loader'
 import { useRouter } from 'next/navigation'
 
-type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right '
+type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right'
 
 const MeetingRoom = () => {
     const searchParams = useSearchParams()
@@ -41,7 +41,7 @@ const MeetingRoom = () => {
         switch (layout) {
             case 'grid':
                 return <PaginatedGridLayout />
-            case 'speaker-right ':
+            case 'speaker-right':
                 return <SpeakerLayout participantsBarPosition='left' />
 
             default:
